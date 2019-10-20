@@ -1,0 +1,16 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home page{% endblock title %}
+
+{% block content %}
+<h1>Home page</h1>
+<! <img src="{% static 'images/falconx.png' %}" class="img-fluid" alt="FalconX launch"/>
+<div id="map" class="map-responsive"></div>
+{% endblock content %}
+
+{% block javascript %}
+<script src="{% static 'js/map-client.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbVsG1Midqo4UMf88nt4lzNaekltYr2tg&callback=initialize" async defer></script>
+
+{% endblock javascript %}
