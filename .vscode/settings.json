@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/marc/.local/share/virtualenvs/cs3-new-zA9ihb4r/bin/python"
+    "python.pythonPath": "/home/marc/.local/share/virtualenvs/cs3-new-zA9ihb4r/bin/python",
+    "python.linting.enabled": true
 }

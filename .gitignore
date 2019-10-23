@@ -6,6 +6,9 @@
 **/logs
 *.log
 
+### Do not track api keys stored in api_keys.py files
+api_keys.py
+
 ### django migration files
 migrations/
 
