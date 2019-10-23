@@ -11,6 +11,7 @@ django = "*"
 django-allauth = "*"
 django-crispy-forms = "*"
 django-debug-toolbar = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
