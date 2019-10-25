@@ -1,9 +1,24 @@
+
+var addr = "dev.yourserver.yourorg.tld"
+var port = "5001"
+
+function Get(whateverUrl){
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",whateverUrl,false);
+    Httpreq.send(null);
+    return Httpreq.responseText;          
+}
+
+var whatever_list_obj = JSON.parse(Get("http://" + "localhost" + ":" + "8000" + "/api/installations/?format=json"));
+whatever_qty = whatever_list_obj.length;
+console.log(whatever_list_obj);
+for (var i = 0; i < whatever_qty; i++) {
+    console.log(whatever_list_obj[i]);
+}
+
+
 var infos = [];
-var locations = [
-  ['ETH Zürich', 47.3763166, 8.5454812, 'Beautiful Zürich'],
-  ['EPFL', 46.3730598, 6.8214708, 'Beautiful Lausanne'],
-  ['University of Rome', 41.9037666, 12.5122497, 'Beautiful Rome'],
-];
+var locations = whatever_list_obj;
 
 function initialize() {
 
@@ -26,22 +41,22 @@ function setMarkers(map, locations) {
 
   for (i = 0; i < locations.length; i++) {
 
-    var loan = locations[i][0]
-    var lat = locations[i][1]
-    var long = locations[i][2]
-    var add = locations[i][3]
+    var name = locations[i].name
+    var lat = locations[i].lat_coordinates
+    var long = locations[i].lon_coordinates
+    var add = "Institution: " + locations[i].name + "<br/>" + "Number of Users: " + locations[i].number_of_users + "<br/>" + "Storage Capacity: " + locations[i].number_of_terabytes + "<br/>"
 
     latlngset = new google.maps.LatLng(lat, long);
 
     var marker = new google.maps.Marker({
       map: map,
-      title: loan,
+      title: name,
       position: latlngset
     });
     map.setCenter(marker.getPosition())
 
 
-    var content = "Institute: " + loan + "<br/>" + '</h3>' + "Note: " + add
+    var content = add
 
     var infowindow = new google.maps.InfoWindow()
 

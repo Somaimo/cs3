@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'debug_toolbar',
 
+    # REST Framework
+    'rest_framework',
+
     # Local
     'users',
     'pages',
@@ -80,6 +83,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangox_project.wsgi.application'
+
+
+# REST Framework Settings
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 # Database
